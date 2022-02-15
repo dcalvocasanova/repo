@@ -5,7 +5,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        Hola esto es una pruebita
+                        Hola esto es una pruebita hola hola HAGEMCITO
                     </div>
                 </div>
             
