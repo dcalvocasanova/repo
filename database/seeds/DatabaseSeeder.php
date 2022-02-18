@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
             RoleUserTableSeeder::class,
             StatusesTableSeeder::class,
             ClientTableSeeder::class,
+            CatalogsTableSeeder::class,
+            CollectorsTableSeeder::class,
         ]);
     }
 }

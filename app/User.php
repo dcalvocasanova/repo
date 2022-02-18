@@ -106,4 +106,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+
+  /*   public function collectors()
+    {
+        return $this->hasOne(Collector::class);
+    } */
+
+
+
+
 }

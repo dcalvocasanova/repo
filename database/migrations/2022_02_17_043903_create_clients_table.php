@@ -29,6 +29,7 @@ class CreateClientsTable extends Migration
             $table->string('home');
             $table->string('url');//ubicacion de las fotos
             $table->timestamps();
+            //$table->foreign('user_id')->references('id')->on('users');
         });
     }
 

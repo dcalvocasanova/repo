@@ -14,10 +14,20 @@ class CreateCollectorsTable extends Migration
     public function up()
     {
         Schema::create('collectors', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('telephone_1');
             $table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
+
+        /* Schema::table('collectors', function ($table) { 
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users'); 
+        }); */
     }
+
+
 
     /**
      * Reverse the migrations.
