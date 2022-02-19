@@ -13,6 +13,12 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             StatusesTableSeeder::class,
+            CatalogsTableSeeder::class,
+            CollectorsTableSeeder::class,
+            ClientTableSeeder::class,
+            LoansTableSeeder::class,
+            PaymentsTableSeeder::class,
+            SpendsTableSeeder::class,
         ]);
     }
 }
