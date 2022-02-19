@@ -25,4 +25,19 @@ class Catalog extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public function collectors()
+    {
+        return $this->belongsToMany(Collector::class);
+    }
+
+/*     public function clients()
+    {
+        return $this->belongsToMany(Client::class);
+    } */
+
+/*     public function catalogs()
+    {
+        return $this->belongsToMany(Client::class);
+    } */
 }

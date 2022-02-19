@@ -36,4 +36,9 @@ class Collector extends Model
         return $this->hasOne(User::class);
     }
 
+    public function catalogs()
+    {
+        return $this->belongsToMany(Catalog::class);
+    }
+
 }

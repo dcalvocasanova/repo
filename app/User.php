@@ -108,12 +108,4 @@ class User extends Authenticatable
     }
 
 
-  /*   public function collectors()
-    {
-        return $this->hasOne(Collector::class);
-    } */
-
-
-
-
 }
