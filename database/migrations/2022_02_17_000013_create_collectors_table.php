@@ -21,10 +21,6 @@ class CreateCollectorsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        /* Schema::table('collectors', function ($table) { 
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users'); 
-        }); */
     }
 
 
@@ -38,4 +34,5 @@ class CreateCollectorsTable extends Migration
     {
         Schema::dropIfExists('collectors');
     }
+
 }
