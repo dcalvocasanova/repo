@@ -25,7 +25,7 @@
     @yield('styles')
 </head>
 
-<body class="c-app">
+<body class="c-app" style="display: block">
   <div id="app">
     @include('partials.menu')
     <div class="c-wrapper">

@@ -838,6 +838,9 @@ select {
      -moz-user-select: all;
           user-select: all;
 }
+.resize {
+  resize: both;
+}
 .list-inside {
   list-style-position: inside;
 }

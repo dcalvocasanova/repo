@@ -22,7 +22,15 @@
         "postcss": "^8.2.13",
         "postcss-import": "^14.0.1",
         "tailwindcss": "^3.0.0",
+        "vform": "^2.1.2",
         "vue": "^3.0.5",
         "vue-loader": "^16.1.2"
+    },
+    "dependencies": {
+        "@vueform/multiselect": "^2.3.2",
+        "@vuelidate/core": "^2.0.0-alpha.34",
+        "@vuelidate/validators": "^2.0.0-alpha.26",
+        "vue-upload-component": "^3.1.2",
+        "vue3-datepicker": "^0.3.2"
     }
 }

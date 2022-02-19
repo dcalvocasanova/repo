@@ -7,6 +7,8 @@
                     <div class="card-body">
                         Hola esto es una pruebita hola hola HAGEMCITO
                     </div>
+
+                    <input type="text" >
                 </div>
             
 </template>

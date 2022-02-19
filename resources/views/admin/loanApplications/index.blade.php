@@ -117,7 +117,9 @@
         </div>
     </div>   
 
-    <example-component><example-component />
+    
+    <loan-component><loan-component/>
+
 </div>
 
 
