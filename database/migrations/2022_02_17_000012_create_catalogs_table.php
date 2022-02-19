@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCollectorsTable extends Migration
+class CreateCatalogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateCollectorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('collectors', function (Blueprint $table) {
-            $table->id();
+        Schema::create('catalogs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('typeName');//tipo a insertar
+            $table->string('value');//valor del tipo insertado
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateCollectorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collectors');
+        Schema::dropIfExists('catalogs');
     }
 }

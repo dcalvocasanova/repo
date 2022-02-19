@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use \DateTimeInterface;
 
-class Client extends Model
+class Collector extends Model
 {
     //use SoftDeletes;
 
-    public $table = 'clients';
+    public $table = 'collectors';
 
     protected $dates = [
         'created_at',
@@ -18,23 +18,17 @@ class Client extends Model
 
     protected $fillable = [
         'user_id',
-        'alias',
-        'goverment_ID',
-        'company',
         'telephone_1',
-        'telephone_2',
-        'collector',
-        'route',
-        'status',
-        'detailed_address',
-        'GPS',
-        'home',
-        'url',
     ];
 
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
     }
 
     public function users()
@@ -44,11 +38,7 @@ class Client extends Model
 
     public function catalogs()
     {
-        return $this->hasOne(Catalog::class);
+        return $this->belongsToMany(Catalog::class);
     }
 
-    public function collectors()
-    {
-        return $this->hasOne(Collector::class);
-    }
 }

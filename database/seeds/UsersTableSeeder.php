@@ -32,7 +32,14 @@ class UsersTableSeeder extends Seeder
             [
                 'id'             => 4,
                 'name'           => 'Adrian',
-                'email'          => 'a@a.co',
+                'email'          => 'cliente@cliente.co',
+                'password'       => '$2y$10$PadOOF6GiHJqI1IQhPZNjeXkKGPip9vJXdhB5ra6lrvZdcZFZDCjy',
+                'remember_token' => null,
+            ],
+            [
+                'id'             => 5,
+                'name'           => 'Juan',
+                'email'          => 'cobrador@cobrador.co',
                 'password'       => '$2y$10$PadOOF6GiHJqI1IQhPZNjeXkKGPip9vJXdhB5ra6lrvZdcZFZDCjy',
                 'remember_token' => null,
             ],
