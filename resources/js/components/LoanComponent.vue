@@ -33,6 +33,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-3">
+              <label> Monto </label>
               <input
                 type="number"
                 class="form-control col-12"
@@ -41,6 +42,7 @@
               />
             </div>
             <div class="col-2">
+              <label> Plazo </label>
               <Multiselect
                 v-model="state.plazo"
                 placeholder="Plazo"
@@ -51,6 +53,7 @@
               />
             </div>
             <div class="col-2">
+              <label> tasa de interés </label>
               <Multiselect
                 v-model="state.interes"
                 placeholder="Interés"
@@ -62,6 +65,7 @@
             </div>
 
             <div class="col-2">
+              <label> Periodo </label>
               <Multiselect
                 v-model="state.periodo"
                 placeholder="Periodo"
@@ -73,6 +77,7 @@
             </div>
 
             <div class="col-2">
+              <label> Método de pago </label>
               <Multiselect
                 v-model="state.metodo"
                 placeholder="Método"
@@ -98,12 +103,11 @@
                 placeholder="Monto de intereses"
                 name="int"
                 v-model="state.montoInteres"
-                readonly
               />
             </div>
 
             <div class="col-3">
-              <label for="couta"> Couta a pagar)</label>
+              <label for="couta"> Couta a pagar  (  {{ state.coutasModificadas }} )</label>
               <input
                 type="number"
                 class="form-control col-12"
@@ -125,7 +129,7 @@
             </div>
 
             <div class="col-3">
-              <label for="coutac"> Cantidad de coutas</label>
+              <label for="coutac"> Cantidad total de coutas</label>
               <input
                 type="number"
                 class="form-control col-12"
@@ -150,19 +154,7 @@
 
       <br><br>
 
-      <div class="table-responsive">
-        <table class=" table table-bordered table-striped table-hover datatable datatable-LoanApplication">
-          <thead>
-            <tr>
-              <th># Couta</th>
-              <th>Fecha </th>
-              <th> Couta</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-
-      </div>
+     
     </div>
   </div>
 </template>
@@ -281,7 +273,7 @@ export default {
       coutaFinal: 0,
       fechaFin: "",
       montoTotal: integer,
-      coutasModificadas: integer,
+      coutasModificadas: 0,
     });
 
     const rules = computed(() => {
@@ -320,11 +312,19 @@ export default {
 
     watchEffect(() => {
       if (parseInt(state.amount) > 0 && parseInt(state.interes) > 0) {
-        state.montoInteres =
-          (parseInt(state.amount) * parseInt(state.interes)) / 100;
+        state.montoInteres = (parseInt(state.amount) * parseInt(state.interes)) / 100;
       }
 
       if (parseInt(state.montoInteres) > 0) {
+        
+        let interesesPorRecalcular =  (state.montoInteres * 100) / state.amount
+        if (state.interes !== interesesPorRecalcular)
+        {
+            state.interes = interesesPorRecalcular;
+           // this.interes.push({ value: interesesPorRecalcular, label: interesesPorRecalcular })
+        }
+
+
         if (parseInt(state.plazo) > 0 && parseInt(state.periodo) > 0) {
             state.montoTotal =
               parseInt(state.montoInteres) + parseInt(state.amount);
@@ -366,10 +366,11 @@ export default {
               state.coutaFinal =
                 parseInt(state.montoTotal) -
                 parseInt(state.couta) * (parseInt(state.cantidadCoutas) - 1);
-              state.coutasModificadas = parseInt(state.cantidadCoutas) - 1;
+                state.coutasModificadas = parseInt(state.cantidadCoutas) - 1;
             }
 
-          }else 
+          }
+          else 
           {
             state.coutaFinal = 0
             state.couta = state.montoTotal
