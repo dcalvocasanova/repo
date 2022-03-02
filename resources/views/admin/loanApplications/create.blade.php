@@ -35,6 +35,10 @@
                 </button>
             </div>
         </form>
+
+
+        <loan-component><loan-component/>
+
     </div>
 </div>
 
