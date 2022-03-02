@@ -117,8 +117,9 @@
         </div>
     </div>   
 
+    <client-component><client-component/>
     
-    <loan-component><loan-component/>
+
 
 </div>
 
